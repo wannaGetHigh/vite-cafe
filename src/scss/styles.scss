@@ -1,0 +1,168 @@
+// Import all of Bootstrap's CSS
+@import "~bootstrap/scss/bootstrap";
+
+// Import font
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+// Custom Bootstrap's CSS
+$utilities: map-merge(
+  $utilities,
+  (
+    "padding": (
+      property: padding,
+      class: p,
+      values: (
+        30: 30px,
+      ),     
+    ),
+    "width": (
+      property: width,
+      class: w,
+      values: (
+        20: 20px,
+        120: 120px,
+        240: 240px,
+      ),
+    ),
+    "height": (
+      property: height,
+      class: h,
+      values: (
+        20: 20px,
+        240: 240px,
+      )
+    ),
+    "inset": (
+      property: top right bottom left,
+      class: inset,
+      values: (
+        0: 0px
+      )
+    ),
+    "object-fit": (
+      property: object-fit,
+      class: object,
+      values: cover
+    ),
+    "background-color": (
+      property: background-color,
+      class: bg,
+      values: (
+        b-03: rgba(0, 0, 0, 0.3),
+        b-07: rgba(0, 0, 0, 0.7),
+      )
+    ),
+    "shadow": (
+      property: box-shadow,
+      class: shadow,
+      values: (
+        null: $box-shadow,
+        sm: $box-shadow-sm,
+        lg: $box-shadow-lg,
+        none: none,
+        black: 0px 0px 11px 5px black,
+      )
+    ),
+  )
+);
+
+@import "bootstrap/scss/utilities/api";
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+// Custom cursor
+body {
+  cursor: url(src/assets/images/cursor.svg), default !important;
+}
+
+button, .cursor-pointer {
+  cursor: url(src/assets/images/pointer.svg), default !important;
+}
+
+body {
+  --bs-body-font-family: VT323, monospace;
+  --dim-green-glow: 0px 0px 1px hsl(120, 100%, 80%), 0px 0px 10px green;
+  --green-glow-drop-shadow: drop-shadow(0px 0px 2px hsl(120, 100%, 80%)) drop-shadow(0px 0px 8px green);
+  --green-glow-small: 0px 0px 1px hsl(120, 100%, 80%), 0px 0px 2px hsl(120, 100%, 80%), 0px 0px 10px green;
+  --green-glow: 0px 0px 2px hsl(120, 100%, 80%), 0px 0px 15px green, 0px 0px 60px green;
+  --red-glow: 0px 0px 1px hsl(0, 100%, 80%), 0px 0px 2px hsl(0, 100%, 80%), 0px 0px 15px hsl(0, 100%, 50%), 0px 0px 60px red;
+  --blue-glow: 0px 0px 1px hsl(192, 100%, 80%), 0px 0px 16px hsl(244, 90%, 49%), 0px 0px 30px hsl(244, 100%, 50%), 0px 0px 60px white;
+}
+
+.red {
+  text-shadow: var(--red-glow);
+}
+
+.green {
+  text-shadow: var(--green-glow);
+}
+
+.shadow {
+  filter: var(--green-glow-drop-shadow);
+}
+
+.blink {
+  animation: blink 1s linear infinite;
+}
+
+.slideUp {
+  animation: slideUp 2s ease-out;
+}
+
+.fadeIn {
+  animation: fadeIn 2s linear;
+}
+
+.tiviOn {
+  animation: tiviOn 1s ease
+
+}
+
+@keyframes tiviOn {
+  0% {
+    transform: scale(0.2, 0.002);
+    opacity: 0;
+
+  }
+  50% {
+    transform: scale(1, 0.002);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+  
+
+@keyframes blink {
+  0% {
+    visibility: visible;
+    opacity: 100%;
+  }
+  100% {
+    visibility: hidden;
+    opacity: 0%;
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(80%);
+    opacity: 0%;
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 100%;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
